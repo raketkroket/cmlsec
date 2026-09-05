@@ -45,7 +45,16 @@ function escapeHtml(s: string): string {
     .replace(/'/g, "&#039;");
 }
 
-function buildInternalEmail(d: QuotePayload): string {
+function emailHeader(title: string, logoUrl: string): string {
+  return `<tr><td style="padding:28px 40px;border-bottom:1px solid #1C2230">
+    <a href="https://cmlsecurity.nl" style="display:inline-block;text-decoration:none">
+      <img src="${escapeHtml(logoUrl)}" alt="CML Security B.V." width="72" style="display:block;width:72px;height:auto;border:0;outline:none;text-decoration:none" />
+    </a>
+    <h1 style="margin:20px 0 0;font-size:24px;font-weight:600;line-height:1.25;color:#F4F6FB">${escapeHtml(title)}</h1>
+  </td></tr>`;
+}
+
+function buildInternalEmail(d: QuotePayload, logoUrl: string): string {
   const rows = [
     ["Type", d.type ?? ""],
     ["Naam", d.naam ?? ""],
@@ -72,10 +81,7 @@ function buildInternalEmail(d: QuotePayload): string {
   <table width="100%" cellpadding="0" cellspacing="0" style="background:#050607;min-height:100%">
     <tr><td align="center" style="padding:40px 20px">
       <table width="600" cellpadding="0" cellspacing="0" style="background:#090B0F;border:1px solid #1C2230;border-radius:16px;overflow:hidden">
-        <tr><td style="padding:32px 40px;border-bottom:1px solid #1C2230">
-          <p style="margin:0;font-size:12px;letter-spacing:0.22em;text-transform:uppercase;color:#7C8CAE">CML Security B.V.</p>
-          <h1 style="margin:8px 0 0;font-size:24px;font-weight:600;color:#F4F6FB">Nieuwe offerte-aanvraag</h1>
-        </td></tr>
+        ${emailHeader("Nieuwe offerte-aanvraag", logoUrl)}
         <tr><td style="padding:24px 40px 8px">
           <table width="100%" cellpadding="0" cellspacing="0">${tableRows}</table>
         </td></tr>
@@ -88,17 +94,14 @@ function buildInternalEmail(d: QuotePayload): string {
 </body></html>`;
 }
 
-function buildConfirmationEmail(d: QuotePayload): string {
+function buildConfirmationEmail(d: QuotePayload, logoUrl: string): string {
   const naam = escapeHtml(d.naam ?? "");
   return `<!DOCTYPE html>
 <html><body style="margin:0;padding:0;background:#050607;font-family:Inter,Arial,sans-serif">
   <table width="100%" cellpadding="0" cellspacing="0" style="background:#050607;min-height:100%">
     <tr><td align="center" style="padding:40px 20px">
       <table width="600" cellpadding="0" cellspacing="0" style="background:#090B0F;border:1px solid #1C2230;border-radius:16px;overflow:hidden">
-        <tr><td style="padding:32px 40px;border-bottom:1px solid #1C2230">
-          <p style="margin:0;font-size:12px;letter-spacing:0.22em;text-transform:uppercase;color:#7C8CAE">CML Security B.V.</p>
-          <h1 style="margin:8px 0 0;font-size:24px;font-weight:600;color:#F4F6FB">Wij hebben uw aanvraag ontvangen</h1>
-        </td></tr>
+        ${emailHeader("Wij hebben uw aanvraag ontvangen", logoUrl)}
         <tr><td style="padding:32px 40px">
           <p style="margin:0 0 16px;font-size:15px;color:#C9D1E3;line-height:1.6">Beste ${naam},</p>
           <p style="margin:0 0 16px;font-size:15px;color:#C9D1E3;line-height:1.6">Bedankt voor uw aanvraag. Wij hebben uw gegevens ontvangen en nemen zo snel mogelijk contact met u op om de mogelijkheden te bespreken.</p>
@@ -151,6 +154,7 @@ Deno.serve(async (req: Request) => {
     const resendApiKey = Deno.env.get("RESEND_API_KEY");
     const fromEmail = Deno.env.get("RESEND_FROM_EMAIL") || "noreply@cmlsecurity.nl";
     const toEmail = Deno.env.get("CML_NOTIFY_EMAIL") || "info@cmlsecurity.nl";
+    const logoUrl = Deno.env.get("CML_LOGO_URL") || "https://cmlsecurity.nl/assets/images/LOGO.png";
 
     if (!resendApiKey) {
       return new Response(
@@ -171,7 +175,7 @@ Deno.serve(async (req: Request) => {
           to: [toEmail],
           reply_to: data.email,
           subject: `Nieuwe offerte-aanvraag — ${data.naam}`,
-          html: buildInternalEmail(data),
+          html: buildInternalEmail(data, logoUrl),
         }),
       }),
       fetch("https://api.resend.com/emails", {
@@ -184,7 +188,7 @@ Deno.serve(async (req: Request) => {
           from: `CML Security <${fromEmail}>`,
           to: [data.email!],
           subject: "Uw aanvraag bij CML Security B.V.",
-          html: buildConfirmationEmail(data),
+          html: buildConfirmationEmail(data, logoUrl),
         }),
       }),
     ]);
