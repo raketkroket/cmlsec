@@ -12,13 +12,29 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  overflow-x: clip;
 }
 
 body {
   background-color: #050607;
   color: #E6EAF3;
   font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
-  overflow-x: hidden;
+  overflow-x: clip;
+}
+
+#root {
+  min-width: 0;
+  overflow-x: clip;
+}
+
+button,
+a,
+p,
+h1,
+h2,
+h3,
+span {
+  overflow-wrap: anywhere;
 }
 
 ::selection {

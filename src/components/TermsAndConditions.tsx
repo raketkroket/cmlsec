@@ -20,7 +20,7 @@ export function TermsAndConditions() {
         <p className="text-xs font-medium uppercase tracking-label text-accent-300">CML Security B.V.</p>
         <h1 className="mt-5 font-display text-4xl font-semibold text-white sm:text-5xl">Algemene Voorwaarden</h1>
 
-        <div className="mt-12 space-y-10 text-sm leading-relaxed text-steel-300/85 sm:text-base">
+        <div className="mt-12 space-y-10 break-words text-sm leading-relaxed text-steel-300/85 sm:text-base">
           <Section title="1. Inleiding">
             <p>Deze voorwaarden en condities zijn van toepassing op deze site en op de transacties die betrekking hebben op onze producten en diensten. Je kunt gebonden zijn aan bijkomende contracten in verband met je relatie met ons of met producten of diensten die je van ons ontvangt. Indien bepalingen van aanvullende overeenkomsten in strijd zijn met bepalingen van deze voorwaarden, hebben de bepalingen van die aanvullende overeenkomsten voorrang.</p>
           </Section>

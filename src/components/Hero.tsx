@@ -42,7 +42,7 @@ export function Hero({ onQuote }: HeroProps) {
   }, []);
 
   return (
-    <section id="home" ref={heroRef} className="relative h-[100svh] min-h-[640px] w-full overflow-hidden">
+    <section id="home" ref={heroRef} className="relative h-[100svh] min-h-[600px] w-full overflow-hidden sm:min-h-[640px]">
       {/* Background image */}
       <div data-hero-bg className="absolute inset-0 will-change-transform">
         <img
@@ -81,7 +81,7 @@ export function Hero({ onQuote }: HeroProps) {
               </span>
             </div>
 
-            <h1 className="font-display text-[15vw] font-semibold leading-[0.92] tracking-tightest text-white sm:text-7xl md:text-8xl lg:text-[7.5rem]">
+            <h1 className="font-display text-5xl font-semibold leading-[0.92] tracking-tightest text-white min-[375px]:text-6xl sm:text-7xl md:text-8xl lg:text-[7.5rem]">
               {['VEILIGHEID', 'ZONDER', 'COMPROMIS.'].map((word, i) => (
                 <span key={word} className="block overflow-hidden">
                   <span

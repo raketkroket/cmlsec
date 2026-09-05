@@ -24,7 +24,7 @@ export function StorySection() {
     <section ref={sectionRef} className="relative bg-ink-950">
       {/* Sticky visual + steps */}
       <div ref={ref} className="relative">
-        <div className="sticky top-0 h-screen overflow-hidden">
+        <div className="sticky top-0 h-[100svh] min-h-[640px] overflow-hidden">
           {/* Background */}
           <div className="absolute inset-0">
             <img
@@ -38,13 +38,13 @@ export function StorySection() {
           </div>
 
           <div className="relative z-10 mx-auto flex h-full max-w-7xl items-center px-5 sm:px-8">
-            <div className="grid w-full grid-cols-1 gap-10 lg:grid-cols-12">
+            <div className="grid w-full grid-cols-1 gap-7 sm:gap-10 lg:grid-cols-12">
               {/* Left: big number */}
               <div className="lg:col-span-7">
                 <div ref={labelRef}>
                   <SectionLabel>24/7 Readiness</SectionLabel>
                 </div>
-                <div className="relative mt-8 h-[40vh] sm:h-[44vh]">
+                <div className="relative mt-6 h-[30svh] min-h-48 sm:mt-8 sm:h-[44vh]">
                   {steps.map((s, i) => (
                     <div
                       key={s.k}
@@ -52,7 +52,7 @@ export function StorySection() {
                         i === activeStep ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6 pointer-events-none'
                       }`}
                     >
-                      <span className="font-display text-[22vw] font-bold leading-none tracking-tightest text-white/95 sm:text-[16vw] lg:text-[12rem]">
+                      <span className="font-display text-[5.5rem] font-bold leading-none tracking-tightest text-white/95 min-[375px]:text-[6.5rem] sm:text-[16vw] lg:text-[12rem]">
                         {s.k}
                       </span>
                     </div>
@@ -66,21 +66,21 @@ export function StorySection() {
                   {steps.map((s, i) => (
                     <div
                       key={s.k}
-                      className={`border-l-2 py-5 pl-5 transition-all duration-500 ease-premium ${
+                      className={`border-l-2 py-3 pl-4 transition-all duration-500 ease-premium sm:py-5 sm:pl-5 ${
                         i === activeStep
                           ? 'border-accent-400 bg-white/[0.03]'
                           : 'border-white/10 bg-transparent'
                       }`}
                     >
                       <p
-                        className={`text-sm font-medium transition-colors duration-300 ${
+                        className={`text-xs font-medium leading-snug transition-colors duration-300 sm:text-sm ${
                           i === activeStep ? 'text-white' : 'text-steel-400'
                         }`}
                       >
                         {s.t}
                       </p>
                       <p
-                        className={`mt-1 text-sm leading-relaxed transition-all duration-500 ${
+                        className={`mt-1 text-xs leading-relaxed transition-all duration-500 sm:text-sm ${
                           i === activeStep ? 'text-steel-200/70 opacity-100' : 'text-steel-400/50 opacity-0'
                         }`}
                       >
