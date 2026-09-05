@@ -14,7 +14,6 @@ const nav = [
 
 const legal = [
   { label: 'Algemene Voorwaarden', href: '/algemene-voorwaarden' },
-  { label: 'Privacyverklaring', href: '/privacy' },
   { label: 'Cookiebeleid', href: '/cookies' },
 ];
 

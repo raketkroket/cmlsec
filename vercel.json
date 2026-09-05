@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/algemene-voorwaarden",
+      "destination": "/index.html"
+    }
+  ]
+}

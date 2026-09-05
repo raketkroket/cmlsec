@@ -11,6 +11,7 @@ import { Testimonials } from '@/components/Testimonials';
 import { QuoteForm } from '@/components/QuoteForm';
 import { Contact } from '@/components/Contact';
 import { Footer } from '@/components/Footer';
+import { TermsAndConditions } from '@/components/TermsAndConditions';
 
 function App() {
   const [quoteOpen, setQuoteOpen] = useState(false);
@@ -46,6 +47,10 @@ function App() {
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
   }, []);
+
+  if (window.location.pathname === '/algemene-voorwaarden') {
+    return <TermsAndConditions />;
+  }
 
   return (
     <div className="grain relative min-h-screen bg-ink-950">
