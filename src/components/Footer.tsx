@@ -14,7 +14,6 @@ const nav = [
 
 const legal = [
   { label: 'Algemene Voorwaarden', href: '/algemene-voorwaarden' },
-  { label: 'Cookiebeleid', href: '/cookies' },
 ];
 
 export function Footer({ onQuote }: FooterProps) {
