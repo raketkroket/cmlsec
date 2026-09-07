@@ -1,4 +1,5 @@
-import { useReveal } from '@/lib/motion';
+import { useEffect, useRef, useState } from 'react';
+import { useScrollProgress, useReveal } from '@/lib/motion';
 import { SectionLabel } from './SectionLabel';
 
 const steps = [
@@ -9,34 +10,98 @@ const steps = [
 ];
 
 export function StorySection() {
-  const { ref, visible } = useReveal<HTMLDivElement>();
+  const { ref, progress } = useScrollProgress<HTMLDivElement>();
+  const { ref: labelRef, visible } = useReveal<HTMLDivElement>();
+  const sectionRef = useRef<HTMLDivElement | null>(null);
+  const [activeStep, setActiveStep] = useState(0);
+
+  useEffect(() => {
+    const idx = Math.min(steps.length - 1, Math.floor(progress * steps.length * 0.999));
+    setActiveStep(idx);
+  }, [progress]);
 
   return (
-    <section className="relative border-y border-white/8 bg-ink-900/35 py-24 sm:py-32">
+    <section ref={sectionRef} className="relative bg-ink-950">
+      <div ref={ref} className="relative">
+        <div className="sticky top-0 h-[100svh] min-h-[640px] overflow-hidden">
+          <div className="absolute inset-0">
+            <img
+              src="https://images.pexels.com/photos/17507234/pexels-photo-17507234.jpeg?auto=compress&cs=tinysrgb&w=2000"
+              alt="Beveiliger in een donkere omgeving"
+              className="h-full w-full object-cover opacity-40"
+              loading="lazy"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-ink-950 via-ink-950/60 to-ink-950" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_20%_50%,rgba(45,91,240,0.12),transparent_55%)]" />
+          </div>
+
+          <div className="relative z-10 mx-auto flex h-full max-w-7xl items-center px-5 sm:px-8">
+            <div className="grid w-full grid-cols-1 gap-7 sm:gap-10 lg:grid-cols-12">
+              <div className="lg:col-span-7">
+                <div ref={labelRef}>
+                  <SectionLabel>24/7 Readiness</SectionLabel>
+                </div>
+                <div className="relative mt-6 h-[30svh] min-h-48 sm:mt-8 sm:h-[44vh]">
+                  {steps.map((s, i) => (
+                    <div
+                      key={s.k}
+                      className={`absolute inset-0 flex flex-col justify-center transition-all duration-700 ease-premium ${
+                        i === activeStep ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6 pointer-events-none'
+                      }`}
+                    >
+                      <span className="font-display text-[5.5rem] font-bold leading-none tracking-tightest text-white/95 min-[375px]:text-[6.5rem] sm:text-[16vw] lg:text-[12rem]">
+                        {s.k}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="lg:col-span-5 lg:pt-24">
+                <div className="space-y-1">
+                  {steps.map((s, i) => (
+                    <div
+                      key={s.k}
+                      className={`border-l-2 py-3 pl-4 transition-all duration-500 ease-premium sm:py-5 sm:pl-5 ${
+                        i === activeStep
+                          ? 'border-accent-400 bg-white/[0.03]'
+                          : 'border-white/10 bg-transparent'
+                      }`}
+                    >
+                      <p
+                        className={`text-xs font-medium leading-snug transition-colors duration-300 sm:text-sm ${
+                          i === activeStep ? 'text-white' : 'text-steel-400'
+                        }`}
+                      >
+                        {s.t}
+                      </p>
+                      <p
+                        className={`mt-1 text-xs leading-relaxed transition-all duration-500 sm:text-sm ${
+                          i === activeStep ? 'text-steel-200/70 opacity-100' : 'text-steel-400/50 opacity-0'
+                        }`}
+                      >
+                        {s.d}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="h-[260vh]" />
+      </div>
+
       <div
-        ref={ref}
-        className={`mx-auto max-w-7xl px-5 transition-all duration-700 ease-premium sm:px-8 ${
+        className={`mx-auto max-w-7xl px-5 py-28 sm:px-8 sm:py-36 transition-all duration-700 ease-premium ${
           visible ? 'opacity-100' : 'opacity-0'
         }`}
       >
-        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:col-span-5">
-            <SectionLabel>24/7 paraatheid</SectionLabel>
-            <p className="mt-8 font-display text-4xl font-semibold leading-[1.02] tracking-tightest text-white sm:text-5xl">
-              ALTIJD PARAAT.<br />
-              <span className="text-steel-400">Nooit een moment zonder toezicht.</span>
-            </p>
-          </div>
-          <div className="grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:col-span-7">
-            {steps.map((step) => (
-              <article key={step.k} className="border-t border-white/10 pt-4">
-                <p className="font-display text-2xl font-semibold text-accent-300">{step.k}</p>
-                <h3 className="mt-3 text-base font-semibold text-white">{step.t}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-steel-300/75">{step.d}</p>
-              </article>
-            ))}
-          </div>
-        </div>
+        <p className="max-w-3xl font-display text-3xl font-medium leading-[1.1] tracking-tight text-white sm:text-4xl md:text-5xl">
+          ALTIJD PARAAT.
+          <br />
+          <span className="text-steel-400">Nooit een moment zonder toezicht.</span>
+        </p>
       </div>
     </section>
   );
