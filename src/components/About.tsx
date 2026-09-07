@@ -21,9 +21,9 @@ export function About({ onQuote }: AboutProps) {
               }`}
             >
               <img
-                src="https://images.pexels.com/photos/27831371/pexels-photo-27831371.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                src="/assets/images/man%20staat%20cm%20foto.png"
                 alt="Professionele beveiliger van CML Security in uniform"
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover object-[42%_center]"
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-ink-950/80 via-transparent to-transparent" />

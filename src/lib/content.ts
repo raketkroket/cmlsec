@@ -39,7 +39,7 @@ export const services: Service[] = [
       'Afstemming met organisatie en hulpverlening',
       'Flexibel inzetbaar per locatie en formaat',
     ],
-    image: 'https://images.pexels.com/photos/27831371/pexels-photo-27831371.jpeg?auto=compress&cs=tinysrgb&w=1400',
+    image: '/assets/images/feestj%20beveiliiger.png',
   },
   {
     slug: 'mobiele-surveillance',
@@ -54,7 +54,7 @@ export const services: Service[] = [
       'Zichtbare aanwezigheid als preventie',
       'Rapportage van bevindingen',
     ],
-    image: 'https://images.pexels.com/photos/17507234/pexels-photo-17507234.jpeg?auto=compress&cs=tinysrgb&w=1400',
+    image: '/assets/images/auto%20cml%20foto.png',
   },
   {
     slug: 'toegangscontrole',
@@ -69,7 +69,7 @@ export const services: Service[] = [
       'Beheer van toegangsrechten',
       'Inzicht en rapportage',
     ],
-    image: 'https://images.pexels.com/photos/19922732/pexels-photo-19922732.jpeg?auto=compress&cs=tinysrgb&w=1400',
+    image: '/assets/images/computer%20beveiliger%20foto.png',
   },
 ];
 
