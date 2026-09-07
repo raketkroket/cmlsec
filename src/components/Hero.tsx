@@ -42,7 +42,7 @@ export function Hero({ onQuote }: HeroProps) {
   }, []);
 
   return (
-    <section id="home" ref={heroRef} className="relative h-[100svh] min-h-[600px] w-full overflow-hidden sm:min-h-[640px]">
+    <section id="home" ref={heroRef} className="relative h-[100svh] min-h-[100svh] w-full overflow-hidden sm:min-h-[640px]">
       {/* Background image */}
       <div data-hero-bg className="absolute inset-0 will-change-transform">
         <img
@@ -61,7 +61,7 @@ export function Hero({ onQuote }: HeroProps) {
       {/* Content */}
       <div
         data-hero-content
-        className="relative z-10 flex h-full flex-col justify-end pb-24 sm:pb-28"
+        className="relative z-10 flex h-full flex-col justify-end px-0 pb-8 pt-28 sm:pb-28 sm:pt-0"
       >
         <div className="mx-auto w-full max-w-7xl px-5 sm:px-8">
           <div
@@ -70,7 +70,7 @@ export function Hero({ onQuote }: HeroProps) {
             }`}
           >
             <div
-              className={`mb-6 flex items-center gap-3 transition-all duration-700 ease-premium ${
+              className={`mb-4 flex items-center gap-3 transition-all duration-700 ease-premium sm:mb-6 ${
                 mounted ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-0'
               }`}
               style={{ transitionDelay: '120ms' }}
@@ -81,7 +81,7 @@ export function Hero({ onQuote }: HeroProps) {
               </span>
             </div>
 
-            <h1 className="font-display text-5xl font-semibold leading-[0.92] tracking-tightest text-white min-[375px]:text-6xl sm:text-7xl md:text-8xl lg:text-[7.5rem]">
+            <h1 className="font-display text-[2.5rem] font-semibold leading-[0.92] tracking-tightest text-white min-[375px]:text-5xl sm:text-7xl md:text-8xl lg:text-[7.5rem]">
               {['VEILIGHEID', 'ZONDER', 'COMPROMIS.'].map((word, i) => (
                 <span key={word} className="block overflow-hidden">
                   <span
@@ -97,7 +97,7 @@ export function Hero({ onQuote }: HeroProps) {
             </h1>
 
             <p
-              className={`mt-8 max-w-xl text-base leading-relaxed text-steel-200/80 transition-all duration-700 ease-premium sm:text-lg ${
+              className={`mt-5 max-w-xl text-sm leading-relaxed text-steel-200/80 transition-all duration-700 ease-premium min-[375px]:text-base sm:mt-8 sm:text-lg ${
                 mounted ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
               }`}
               style={{ transitionDelay: '760ms' }}
@@ -107,7 +107,7 @@ export function Hero({ onQuote }: HeroProps) {
             </p>
 
             <div
-              className={`mt-10 flex flex-col gap-4 sm:flex-row sm:items-center transition-all duration-700 ease-premium ${
+              className={`mt-6 flex flex-col gap-3 min-[375px]:mt-8 min-[375px]:gap-4 sm:mt-10 sm:flex-row sm:items-center transition-all duration-700 ease-premium ${
                 mounted ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
               }`}
               style={{ transitionDelay: '920ms' }}
@@ -115,7 +115,7 @@ export function Hero({ onQuote }: HeroProps) {
               <button
                 ref={primaryRef}
                 onClick={onQuote}
-                className="magnetic group inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-4 text-sm font-semibold text-ink-950 transition-colors duration-300 hover:bg-steel-50"
+                className="magnetic group inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3 text-sm font-semibold text-ink-950 transition-colors duration-300 hover:bg-steel-50 sm:py-4"
               >
                 Offerte aanvragen
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" strokeWidth={2.5} />
@@ -123,7 +123,7 @@ export function Hero({ onQuote }: HeroProps) {
               <a
                 ref={secondaryRef}
                 href="#diensten"
-                className="magnetic group inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-7 py-4 text-sm font-semibold text-white backdrop-blur-sm transition-colors duration-300 hover:bg-white/10"
+                className="magnetic group inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-7 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-colors duration-300 hover:bg-white/10 sm:py-4"
               >
                 Ontdek onze diensten
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" strokeWidth={2.5} />
