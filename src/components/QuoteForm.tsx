@@ -77,7 +77,7 @@ export function QuoteForm() {
   };
 
   return (
-    <section id="offerte" className="relative py-28 sm:py-36">
+    <section id="offerte" className="relative py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div ref={ref} className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
@@ -125,7 +125,7 @@ export function QuoteForm() {
           </div>
 
           <div className="lg:col-span-7">
-            <div className="rounded-2xl border border-white/8 bg-ink-900/50 p-6 sm:p-8">
+            <div className="rounded-lg border border-white/8 bg-ink-900/50 p-6 sm:p-8">
               {status === 'success' ? (
                 <SuccessState onReset={() => { setData(empty); setStatus('idle'); }} />
               ) : (

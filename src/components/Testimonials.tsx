@@ -20,7 +20,7 @@ export function Testimonials() {
   };
 
   return (
-    <section className="relative py-28 sm:py-36">
+    <section className="relative py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-5 sm:px-8" ref={ref}>
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div>
@@ -46,7 +46,7 @@ export function Testimonials() {
         </div>
 
         <div
-          className={`mt-14 transition-all duration-700 ease-premium ${
+          className={`mt-12 transition-all duration-700 ease-premium ${
             visible ? 'opacity-100' : 'opacity-0'
           }`}
         >
@@ -57,7 +57,7 @@ export function Testimonials() {
             {testimonials.map((t, i) => (
               <article
                 key={i}
-                className="flex w-[88vw] flex-shrink-0 snap-center flex-col justify-between rounded-2xl border border-white/8 bg-ink-900/60 p-8 sm:w-[30rem] sm:p-10"
+                className="flex w-[88vw] flex-shrink-0 snap-center flex-col justify-between rounded-lg border border-white/8 bg-ink-900/60 p-8 sm:w-[30rem] sm:p-10"
               >
                 <Quote className="h-8 w-8 text-accent-400/60" />
                 <p className="mt-6 font-display text-xl font-medium leading-snug text-white sm:text-2xl">

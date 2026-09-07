@@ -93,9 +93,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse): 
 
   const apiKey = process.env.RESEND_API_KEY;
   const fromEmail = process.env.RESEND_FROM_EMAIL;
-  const notifyEmail = process.env.CML_NOTIFY_EMAIL;
+  const notifyEmail = process.env.CML_NOTIFY_EMAIL || 'Administratie@cmlsecurity.nl';
   const logoUrl = process.env.CML_LOGO_URL || 'https://cmlsecurity.nl/assets/images/LOGO.png';
-  if (!apiKey || !fromEmail || !notifyEmail) {
+  if (!apiKey || !fromEmail) {
     res.status(503).json({ error: 'De e-mailservice is nog niet geconfigureerd. Neem contact op met CML Security.' });
     return;
   }

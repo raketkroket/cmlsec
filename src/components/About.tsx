@@ -10,13 +10,13 @@ export function About({ onQuote }: AboutProps) {
   const { ref, visible } = useReveal<HTMLDivElement>();
 
   return (
-    <section id="over" className="relative py-28 sm:py-36">
+    <section id="over" className="relative py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div ref={ref} className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
           {/* Image side */}
           <div className="lg:col-span-6">
             <div
-              className={`relative aspect-[4/5] overflow-hidden rounded-2xl border border-white/8 transition-all duration-1000 ease-premium ${
+              className={`relative aspect-[5/4] overflow-hidden rounded-lg border border-white/8 transition-all duration-1000 ease-premium lg:aspect-[4/3] ${
                 visible ? 'scale-100 opacity-100' : 'scale-105 opacity-0'
               }`}
             >

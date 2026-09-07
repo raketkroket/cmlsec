@@ -153,7 +153,7 @@ Deno.serve(async (req: Request) => {
 
     const resendApiKey = Deno.env.get("RESEND_API_KEY");
     const fromEmail = Deno.env.get("RESEND_FROM_EMAIL") || "noreply@cmlsecurity.nl";
-    const toEmail = Deno.env.get("CML_NOTIFY_EMAIL") || "info@cmlsecurity.nl";
+    const toEmail = Deno.env.get("CML_NOTIFY_EMAIL") || "Administratie@cmlsecurity.nl";
     const logoUrl = Deno.env.get("CML_LOGO_URL") || "https://cmlsecurity.nl/assets/images/LOGO.png";
 
     if (!resendApiKey) {

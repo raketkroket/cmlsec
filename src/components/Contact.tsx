@@ -6,7 +6,7 @@ export function Contact() {
   const { ref, visible } = useReveal<HTMLDivElement>();
 
   return (
-    <section id="contact" className="relative py-28 sm:py-36">
+    <section id="contact" className="relative py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div ref={ref} className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
@@ -39,13 +39,18 @@ export function Contact() {
                 value="+31 6 22364115"
                 href="tel:+31622364115"
               />
-              <ContactRow icon={<Mail className="h-5 w-5" />} label="E-mail" value="info@cmlsecurity.nl" />
+              <ContactRow
+                icon={<Mail className="h-5 w-5" />}
+                label="E-mail"
+                value="Administratie@cmlsecurity.nl"
+                href="mailto:Administratie@cmlsecurity.nl"
+              />
               <ContactRow icon={<Clock className="h-5 w-5" />} label="Bereikbaar" value="24/7 — altijd paraat" />
             </div>
           </div>
 
           <div className="lg:col-span-7">
-            <div className="relative h-full min-h-[320px] overflow-hidden rounded-2xl border border-white/8 bg-ink-850">
+            <div className="relative h-full min-h-[320px] overflow-hidden rounded-lg border border-white/8 bg-ink-850">
               <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_40%,rgba(45,91,240,0.10),transparent_60%)]" />
               <div className="relative z-10 flex h-full flex-col justify-end p-8 sm:p-10">
                 <p className="text-xs font-medium uppercase tracking-label text-accent-200/80">

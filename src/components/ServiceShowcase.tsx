@@ -15,7 +15,7 @@ export function ServiceShowcase({ onSelect, onQuote }: ServiceShowcaseProps) {
   const current = services[active];
 
   return (
-    <section id="diensten" className="relative py-28 sm:py-36">
+    <section id="diensten" className="relative py-20 sm:py-28">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div ref={ref}>
           <SectionLabel>Diensten</SectionLabel>
@@ -27,7 +27,7 @@ export function ServiceShowcase({ onSelect, onQuote }: ServiceShowcaseProps) {
         </div>
 
         {/* Desktop interactive layout */}
-        <div className="mt-16 hidden md:block">
+        <div className="mt-12 hidden md:block">
           <div className="grid grid-cols-12 gap-10">
             {/* Left: list */}
             <div className="col-span-5 lg:col-span-4">
