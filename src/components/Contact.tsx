@@ -27,8 +27,18 @@ export function Contact() {
             </p>
 
             <div className="mt-10 space-y-5">
-              <ContactRow icon={<MapPin className="h-5 w-5" />} label="Adres" value="CML Security B.V." sub="Nederland" />
-              <ContactRow icon={<Phone className="h-5 w-5" />} label="Telefoon" value="Bel ons direct" />
+              <ContactRow
+                icon={<MapPin className="h-5 w-5" />}
+                label="Adres"
+                value="Jan van Krimpenweg 86"
+                href="https://www.google.com/maps/search/?api=1&query=Jan+van+Krimpenweg+86"
+              />
+              <ContactRow
+                icon={<Phone className="h-5 w-5" />}
+                label="Telefoon"
+                value="+31 6 22364115"
+                href="tel:+31622364115"
+              />
               <ContactRow icon={<Mail className="h-5 w-5" />} label="E-mail" value="info@cmlsecurity.nl" />
               <ContactRow icon={<Clock className="h-5 w-5" />} label="Bereikbaar" value="24/7 — altijd paraat" />
             </div>
@@ -62,11 +72,13 @@ function ContactRow({
   label,
   value,
   sub,
+  href,
 }: {
   icon: React.ReactNode;
   label: string;
   value: string;
   sub?: string;
+  href?: string;
 }) {
   return (
     <div className="flex items-start gap-4 border-b border-white/8 pb-5">
@@ -75,7 +87,16 @@ function ContactRow({
       </div>
       <div>
         <p className="text-xs font-medium uppercase tracking-label text-steel-400">{label}</p>
-        <p className="mt-1 text-base font-medium text-white">{value}</p>
+        {href ? (
+          <a
+            href={href}
+            className="mt-1 block text-base font-medium text-white transition-colors hover:text-accent-300"
+          >
+            {value}
+          </a>
+        ) : (
+          <p className="mt-1 text-base font-medium text-white">{value}</p>
+        )}
         {sub && <p className="text-sm text-steel-400">{sub}</p>}
       </div>
     </div>
