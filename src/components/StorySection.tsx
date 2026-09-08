@@ -98,7 +98,7 @@ export function StorySection() {
         }`}
       >
         <p className="max-w-3xl font-display text-3xl font-medium leading-[1.1] tracking-tight text-white sm:text-4xl md:text-5xl">
-          ALTIJD PARAAT.
+            24/7.
           <br />
           <span className="text-steel-400">Nooit een moment zonder toezicht.</span>
         </p>

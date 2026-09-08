@@ -26,7 +26,7 @@ export function Footer({ onQuote }: FooterProps) {
           <div className="lg:col-span-6">
             <Logo className="h-28 w-28" />
             <p className="mt-6 max-w-sm text-base leading-relaxed text-steel-300/70">
-              Professionele beveiliging op maat voor bedrijven, objecten en evenementen. Altijd paraat,
+                Professionele beveiliging op maat voor bedrijven, objecten en evenementen. 24/7,
               altijd afgestemd op uw situatie.
             </p>
             <button

@@ -103,7 +103,7 @@ export function Hero({ onQuote }: HeroProps) {
               style={{ transitionDelay: '760ms' }}
             >
               CML Security levert professionele beveiligingsoplossingen op maat voor bedrijven,
-              objecten en evenementen. Altijd paraat, altijd afgestemd op uw situatie.
+                objecten en evenementen. 24/7, altijd afgestemd op uw situatie.
             </p>
 
             <div

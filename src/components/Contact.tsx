@@ -30,8 +30,8 @@ export function Contact() {
               <ContactRow
                 icon={<MapPin className="h-5 w-5" />}
                 label="Adres"
-                value="Jan van Krimpenweg 86"
-                href="https://www.google.com/maps/search/?api=1&query=Jan+van+Krimpenweg+86"
+                 value="Jan van Krimpenweg 68"
+                 href="https://www.google.com/maps/search/?api=1&query=Jan+van+Krimpenweg+68"
               />
               <ContactRow
                 icon={<Phone className="h-5 w-5" />}
@@ -45,7 +45,7 @@ export function Contact() {
                 value="Administratie@cmlsecurity.nl"
                 href="mailto:Administratie@cmlsecurity.nl"
               />
-              <ContactRow icon={<Clock className="h-5 w-5" />} label="Bereikbaar" value="24/7 — altijd paraat" />
+                <ContactRow icon={<Clock className="h-5 w-5" />} label="Bereikbaar" value="24/7" />
             </div>
           </div>
 
